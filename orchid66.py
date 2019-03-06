@@ -99,9 +99,25 @@ def getcolor(color):
     # else list of tuples
     else:
         if len(color) == 1:
-            return color[0], None
+            color = color[0]
+            if type(color) == str:
+                color = getattr(COLORS, color)
+                if color is None:
+                    raise Error('unknown color')
+            return color, None
         else:
-            return color[0], color[1]
+            fgcolor, bgcolor = color
+
+            if type(fgcolor) == str:
+                fgcolor = getattr(COLORS, fgcolor)
+                if fgcolor is None:
+                    raise Error('unknown color')
+
+            if type(bgcolor) == str:
+                bgcolor = getattr(COLORS, bgcolor)
+                if bgcolor is None:
+                    raise Error('unknown color')
+            return fgcolor, bgcolor
 
 def printn(text, colors):
     '''
