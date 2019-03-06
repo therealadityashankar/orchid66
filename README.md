@@ -21,7 +21,7 @@ green_in_blue = ('green', 'blue')
 # notice tuple in tuple in second parameter
 printn("I like *green in blue*", (green_in_blue,))
 ```
-![example output](example_output.png)
+![example output](exampleoutput.png)
 
 ## example gif:
 ![usage gif](usage_gif.gif)
