@@ -3,7 +3,7 @@ print stuff with colors
 
 Note: currently only supports linux
 
-# installation
+## installation
 
 1. clone this repository
 2. change the current directory into this repository
