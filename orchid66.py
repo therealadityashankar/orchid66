@@ -4,6 +4,14 @@ represents text if it were curr_color
 """
 from collections import OrderedDict
 
+# base error class
+class Error(Exception): pass
+
+class COLORS:
+    red = (255, 50, 50)
+    blue = (50, 50, 255)
+    green = (50, 255, 50)
+
 
 def colored_bash(text, color=None, bgcolor=None):
     """
@@ -62,7 +70,7 @@ def getcolor(color):
     '''
     retrieves fgcolor and bgcolor
 
-    :param color: tuple corrosponding to a color
+    :param color: value corresponding to a color
                   if a tuple such as (r, g, b) or ((r, g, b))
                       return that as fgcolor and bgcolor as None
 
@@ -70,14 +78,19 @@ def getcolor(color):
                       fgcolor is 1st tuple
                       bgcolor is 2nd tuple
                 
-                  color None returns None, None
+                  if  None returns None, None
+                  if string returns appropriate color for string
+                      or raises exception
     :type color: tuple
 
     :returns: fgcolor, bgcolor
     :return type: tuple
     '''
     if color is None: return None, None
-
+    if type(color) == str:
+        color = getattr(COLORS, color)
+        if color is None:
+            raise Error('unknown color')
     # if first is number
     # assume tuple of numbers
     if type(color[0]) == int or type(color[0]) == float:
