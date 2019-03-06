@@ -1,6 +1,7 @@
 # orchid66
 print stuff with colors
-currently only supports linux
+
+Note: currently only supports linux
 
 # installation
 
