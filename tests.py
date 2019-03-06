@@ -6,6 +6,8 @@ for i in range(0, 256, 20):
 
 red =  (255, 0, 0)
 blue = (50, 50, 255)
+green = (50, 255, 50)
 printn('this word is in *red*, and this is in *blue*', (red, blue))
-printn('*9&*9 is 81*', (red,))
+printn('*9&*9 is 81*', ((red, green),))
 printn('this is *red*', ('red',))
+printn('*9&*9 is 81*', (("red", "green"),))
