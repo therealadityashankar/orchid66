@@ -5,7 +5,9 @@ Note: currently only supports linux
 
 # installation
 
-`pip install .`
+1. clone this repository
+2. change the current directory into this repository
+3. execute `pip install .`
 
 # example:
 ```
