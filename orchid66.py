@@ -72,6 +72,9 @@ def getcolor(color):
                 
                   color None returns None, None
     :type color: tuple
+
+    :returns: fgcolor, bgcolor
+    :return type: tuple
     '''
     if color is None: return None, None
 
