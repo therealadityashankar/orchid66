@@ -16,6 +16,7 @@ from orchid66 import printn
 printn("this is in *red*, and this is in *blue*", ('red', 'blue'))
 printn("I like *green* && *blue*", ('green', 'blue'))
 ```
+![example output](example_output.png)
 
 ## example gif:
 ![usage gif](usage_gif.gif)
