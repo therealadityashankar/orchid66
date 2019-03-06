@@ -1,5 +1,5 @@
-# orchid66
-Print stuff with colors
+# Orchid66: print colorful stuff nicely
+yeah just, print colorful stuff nicely
 
 Note: currently only supports linux
 
