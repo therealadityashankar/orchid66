@@ -15,6 +15,11 @@ from orchid66 import printn
 
 printn("this is in *red*, and this is in *blue*", ('red', 'blue'))
 printn("I like *green* && *blue*", ('green', 'blue'))
+
+green_in_blue = ('green', 'blue')
+
+# notice tuple in tuple in second parameter
+printn("I like *green in blue*", (green_in_blue,))
 ```
 ![example output](example_output.png)
 
