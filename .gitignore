@@ -1,2 +1,3 @@
 *.swp
+*.pyc
 /orchid66.egg-info/
