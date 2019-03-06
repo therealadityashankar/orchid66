@@ -1,5 +1,0 @@
-orchid66.py
-orchid66.egg-info/PKG-INFO
-orchid66.egg-info/SOURCES.txt
-orchid66.egg-info/dependency_links.txt
-orchid66.egg-info/top_level.txt
