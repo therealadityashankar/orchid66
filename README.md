@@ -9,7 +9,7 @@ Note: currently only supports linux
 2. change the current directory into this repository
 3. execute `pip install .`
 
-# example:
+## example:
 ```
 from orchid66 import printn
 
@@ -17,7 +17,8 @@ printn("this is in *red*, and this is in *blue*, 'red', 'blue')
 printn("I like *green* && *blue*", 'green', 'blue')
 ```
 
-# orchid66' mini language
+## orchid66' mini language
 
 `&*` refers to a single `*` that is rendered
+
 `&&` refers to a single `&` that is rendered
