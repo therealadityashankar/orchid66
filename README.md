@@ -13,11 +13,8 @@ Note: currently only supports linux
 ```
 from orchid66 import printn
 
-red = (255, 0, 0)
-blue = (50, 50 , 255)
-gree = (50, 255, 50)
-printn("this is in *red*, and this is in *blue*, red, blue)
-printn("I like *green* && *blue*", green, blue)
+printn("this is in *red*, and this is in *blue*, 'red', 'blue')
+printn("I like *green* && *blue*", 'green', 'blue')
 ```
 
 # orchid66' mini language
