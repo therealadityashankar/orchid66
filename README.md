@@ -21,7 +21,7 @@ printn("I like *green* && *blue*", ('green', 'blue'))
 ## example gif:
 ![usage gif](usage_gif.gif)
 
-## orchid66' mini language
+## orchid66s' mini language
 
 `&*` refers to a single `*` that is rendered
 
