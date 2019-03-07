@@ -11,9 +11,13 @@ class COLORS:
     red = (255, 50, 50)
     blue = (50, 50, 255)
     green = (50, 255, 50)
+    pink = (255, 192, 203)
+    black = (0, 0, 0)
+    white = (255, 255, 255)
+    # add colors here
 
 
-def colored_bash(text, color=None, bgcolor=None):
+def colored_bash(text, color=None):
     """
     return a string that will return
     a string that will appear curr_color when printed
@@ -22,16 +26,23 @@ def colored_bash(text, color=None, bgcolor=None):
     :type text: string
 
     :param color: a tuple (red, green, blue)
-                  to represent the color
+                  to represent the fgcolor
                   to be used
+
+                  or 2 tuples ((r, g, b), (r, g, b))
+                  to represent the fgcolor, bgcolor
+
+                  or a color string such as 'blue' or 'red'
     :type color: tuple
     :returns: string
     """
-    if color:
-        red, green, blue = color
-        color_thing = f"\033[38;2;{red};{green};{blue}m"
+    fgcolor, bgcolor = getcolor(color)
+    if fgcolor:
+        red, green, blue = fgcolor
+        fgcolor_thing = f"\033[38;2;{red};{green};{blue}m"
     else:
-        color_thing = ""
+        fgcolor_thing = ""
+
     if bgcolor:
         bgred, bggreen, bgblue = bgcolor
         bgcolor_thing = f"\033[48;2;{bgred};{bggreen};{bgblue}m"
@@ -39,11 +50,11 @@ def colored_bash(text, color=None, bgcolor=None):
         bgcolor_thing = ""
 
     reset_thing = "\033[39;49m"
-    return_thing = bgcolor_thing + color_thing + text + reset_thing
+    return_thing = fgcolor_thing + bgcolor_thing + text + reset_thing
     return return_thing
 
 
-def printc(text, color=None, bgcolor=None, end=False):
+def printc(text, color=None, end=False):
     """
     prints the text using the "curr_color" function
     of this module
@@ -62,9 +73,25 @@ def printc(text, color=None, bgcolor=None, end=False):
     :type end: bool
     """
     end = "\n" if end else ""
-    ctext = colored_bash(text, color, bgcolor)
+    ctext = colored_bash(text, color)
     print(ctext, end=end)
 
+
+def getcolorstr(colorstr):
+    '''
+    get color from string
+    raises an exception if
+    the color is not present
+    :param colorstr: a color in string
+                     like 'white' or 'blue'
+    :type str:
+    '''
+    color = getattr(COLORS, colorstr, None)
+    if color is None:
+        raise Error(f'unknown color {color}')
+
+    return color
+    
 
 def getcolor(color):
     '''
@@ -87,10 +114,12 @@ def getcolor(color):
     :return type: tuple
     '''
     if color is None: return None, None
+
+    # if string
     if type(color) == str:
-        color = getattr(COLORS, color)
-        if color is None:
-            raise Error('unknown color')
+        color = getcolorstr(color)
+        return color, None
+
     # if first is number
     # assume tuple of numbers
     if type(color[0]) == int or type(color[0]) == float:
@@ -98,25 +127,23 @@ def getcolor(color):
 
     # else list of tuples
     else:
+        # if one tuple in the list its fgcolor
         if len(color) == 1:
             color = color[0]
             if type(color) == str:
-                color = getattr(COLORS, color)
-                if color is None:
-                    raise Error('unknown color')
+                color = getcolorstr(color)
             return color, None
+
+        # else fgcolor, bgcolor
         else:
             fgcolor, bgcolor = color
 
             if type(fgcolor) == str:
-                fgcolor = getattr(COLORS, fgcolor)
-                if fgcolor is None:
-                    raise Error('unknown color')
+                fgcolor = getcolorstr(fgcolor)
 
             if type(bgcolor) == str:
-                bgcolor = getattr(COLORS, bgcolor)
-                if bgcolor is None:
-                    raise Error('unknown color')
+                bgcolor = getcolorstr(bgcolor)
+
             return fgcolor, bgcolor
 
 def printn(text, colors):
@@ -213,6 +240,20 @@ def printn(text, colors):
         printc(sen, fgcolor, bgcolor)
     
     printc("\n")
+
+
+def color_escape(text):
+    '''
+    color escape text
+    that is, color escaped text will be rendered normally
+    when print c is used
+
+    :param text: text to escape
+    :type text: str
+    '''
+    escaped = text.replace("&", "&&")
+    escaped = escaped.replace("*", "&*")
+    return escaped
 
 __minilang__ =\
 '''
