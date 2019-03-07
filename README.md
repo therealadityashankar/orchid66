@@ -3,12 +3,6 @@
 
 *Note: currently only supports linux*
 
-## installation
-
-1. clone this repository
-2. change the current directory into this repository
-3. execute `pip install .`
-
 ## example:
 ```
 from orchid66 import printn
@@ -25,6 +19,12 @@ printn("I like *green in blue*", (green_in_blue,))
 
 ## example gif:
 ![usage gif](usage_gif.gif)
+
+## installation
+
+1. clone this repository
+2. change the current directory into this repository
+3. execute `pip install .`
 
 ## orchid66s' mini language
 text between `*` is rendered as colored, except when preceded by a `&`
