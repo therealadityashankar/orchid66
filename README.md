@@ -42,7 +42,7 @@ text between `*` is rendered as colored, except when preceded by a `&`
 `&&` refers to a single `&` that is rendered
 
 
-# docs
+## docs:
 ```
 def color_escape:
     color escape text
