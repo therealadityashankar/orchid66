@@ -27,6 +27,7 @@ printn("I like *green in blue*", (green_in_blue,))
 ![usage gif](usage_gif.gif)
 
 ## orchid66s' mini language
+text between `*` is rendered as colored, except when preceded by a `&`
 
 `&*` refers to a single `*` that is rendered
 
