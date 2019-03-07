@@ -1,7 +1,7 @@
 # Orchid66: print colorful stuff nicely
-yeah just, print colorful stuff nicely
+**yeah just, print colorful stuff nicely**
 
-Note: currently only supports linux
+*Note: currently only supports linux*
 
 ## installation
 
