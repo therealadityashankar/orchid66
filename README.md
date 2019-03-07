@@ -45,6 +45,7 @@ text between `*` is rendered as colored, except when preceded by a `&`
 ## docs:
 ```python
 def color_escape:
+    '''
     color escape text
     that is, color escaped text will be rendered normally
     when print c is used
@@ -52,8 +53,10 @@ def color_escape:
     :param text: text to escape
     :type text: str
     
+    '''
 
 def colored_bash:
+    '''
     return a string that will return
     a string that will appear curr_color when printed
 
@@ -71,8 +74,10 @@ def colored_bash:
     :type color: tuple
     :returns: string
     
+    '''
 
 def getcolor:
+    '''
     retrieves fgcolor and bgcolor
 
     :param color: value corresponding to a color
@@ -91,8 +96,10 @@ def getcolor:
     :returns: fgcolor, bgcolor
     :return type: tuple
     
+    '''
 
 def getcolorstr:
+    '''
     get color from string
     raises an exception if
     the color is not present
@@ -100,8 +107,10 @@ def getcolorstr:
                      like 'white' or 'blue'
     :type str:
     
+    '''
 
 def printc:
+    '''
     prints the text using the "curr_color" function
     of this module
 
@@ -118,8 +127,10 @@ def printc:
                 newline
     :type end: bool
     
+    '''
 
 def printn:
+    '''
     print nicely
 
     see the nicely printing mini language with
@@ -153,4 +164,6 @@ def printn:
         blue = (50, 50, 255)
         printn('this word is in *red*, and this is in *blue*', (red, blue))
         printn('9&*9 is 81')
+    
+    '''
 ```
