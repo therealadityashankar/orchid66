@@ -43,7 +43,7 @@ text between `*` is rendered as colored, except when preceded by a `&`
 
 
 ## docs:
-```
+```python
 def color_escape:
     color escape text
     that is, color escaped text will be rendered normally
