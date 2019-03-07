@@ -25,6 +25,11 @@ printn("I like *green in blue*", (green_in_blue,))
 
 ## installation
 
+### through pypi
+
+`pip install orchid66`
+
+### through repository
 1. clone this repository
 2. change the current directory into this repository
 3. execute `pip install .`
