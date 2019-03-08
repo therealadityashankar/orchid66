@@ -7,8 +7,6 @@
 
 *Note: currently only supports linux*
 
-<img src="logo.png" width=100></img>
-
 ## example:
 ```
 from orchid66 import printn
