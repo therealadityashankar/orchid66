@@ -1,8 +1,8 @@
 # Orchid66: print colorful stuff nicely
 
-<img src="logo.png" width=100></img>
 ![version tag](https://img.shields.io/static/v1.svg?label=version&message=1.0.3&color=3596e4)
 ![pypi tag](https://img.shields.io/static/v1.svg?label=pypi&message=1.0.3&color=87b031&link=https://pypi.org/project/orchid66/1.0.3/)
+<img src="logo.png" width=100></img>
 
 **yeah just, print colorful stuff nicely**
 
