@@ -22,19 +22,22 @@ def colored_bash(text, color=None):
     return a string that will return
     a string that will appear curr_color when printed
 
-    :param text: text to show
-    :type text: string
+    Parameters
+    ----------
+    text : string
+        text to show
 
-    :param color: a tuple (red, green, blue)
-                  to represent the fgcolor
-                  to be used
+    color : a tuple (red, green, blue)
+           to represent the fgcolor
+           to be used
+           or 2 tuples ((r, g, b), (r, g, b))
+           to represent the fgcolor, bgcolor
+           or a color string such as 'blue' or 'red'
 
-                  or 2 tuples ((r, g, b), (r, g, b))
-                  to represent the fgcolor, bgcolor
-
-                  or a color string such as 'blue' or 'red'
-    :type color: tuple
-    :returns: string
+    Returns
+    -------
+    string
+           string representing a colored string in bash
     """
     fgcolor, bgcolor = getcolor(color)
     if fgcolor:
@@ -59,18 +62,20 @@ def printc(text, color=None, end=False):
     prints the text using the "curr_color" function
     of this module
 
-    :param text: text to show
-    :type text: string
+    Parameters
+    ----------
+    text : string
+        text to show
 
-    :param color: a tuple (red, green, blue)
-                  to represent the color
-                  to be used
-    :type color: tuple
-
-    :param end: boolean to indicate if 
-                text should end with 
-                newline
-    :type end: bool
+    color : tuple
+        a tuple (red, green, blue)
+        to represent the color
+        to be used
+        
+    end : bool
+        boolean to indicate if 
+        text should end with 
+        newline
     """
     end = "\n" if end else ""
     ctext = colored_bash(text, color)
@@ -82,9 +87,18 @@ def getcolorstr(colorstr):
     get color from string
     raises an exception if
     the color is not present
-    :param colorstr: a color in string
-                     like 'white' or 'blue'
-    :type str:
+
+    Parameters
+    ---
+    colorstr : string
+        a color in string
+        like 'white' or 'blue'
+
+    Returns
+    ---
+    tuple
+        tuple indicating appropriate
+        color in RGB
     '''
     color = getattr(COLORS, colorstr, None)
     if color is None:
@@ -97,21 +111,28 @@ def getcolor(color):
     '''
     retrieves fgcolor and bgcolor
 
-    :param color: value corresponding to a color
-                  if a tuple such as (r, g, b) or ((r, g, b))
-                      return that as fgcolor and bgcolor as None
+    Parameters
+    ---
+    color: string or tuple
+        value corresponding to a color
+        if a tuple such as (r, g, b) or ((r, g, b))
+            return that as fgcolor and bgcolor as None
 
-                  if a tuple such as ((r, g, b), (r, g, b))
-                      fgcolor is 1st tuple
-                      bgcolor is 2nd tuple
-                
-                  if  None returns None, None
-                  if string returns appropriate color for string
-                      or raises exception
-    :type color: tuple
+        if a tuple such as ((r, g, b), (r, g, b))
+            fgcolor is 1st tuple
+            bgcolor is 2nd tuple
+    
+         if  None returns None, None
+         if string returns appropriate color for string
+             or raises exception
 
-    :returns: fgcolor, bgcolor
-    :return type: tuple
+    Returns
+    ---
+    tuple
+        fgcolor, bgcolor
+        both of which are
+        tuples representing RGB
+        colors in (r, g, b)
     '''
     if color is None: return None, None
 
@@ -153,34 +174,42 @@ def printn(text, colors):
     see the nicely printing mini language with
     print(thepycolor.__minilang__)
 
-    :param text: the text between '*' (astriks) is curr_color with the
-                 color in colors at the appropriate index
-                 (an "&*" is rendered as a single "*")
-                 (an "&&" is rendered as a single "&")
-    :type text: color
+    Parameters
+    ---
+    text: string
+        the text between '*' (astriks) is curr_color with the
+        color in colors at the appropriate index
+        (an "&*" is rendered as a single "*")
+        (an "&&" is rendered as a single "&")
 
-    :param colors: iterable of one or two colors
-                   eg: [(133, 100, 90), 
-                        (90, 60, 89),
-                        [(45, 78, 240), (0, 0, 50)]]
+    colors : indexable iterable
+        iterable of one or two colors
+        eg: [(133, 100, 90), 
+             (90, 60, 89),
+            [(45, 78, 240), (0, 0, 50)]]
 
-                   color is a iterable corrosponding 
-                   to (r ,g ,b)
-                   
-                   if 1 iterable of numbers, eg: (56, 78, 90)
-                        numbers corrospond to foreground color
-                   
-                   if 1 iterable of 2 colors, eg: [(45, 56, 89),
-                                                   (77, 8, 56)]
-                        numbers corrospond to foreground and
-                        background color
-    :type colors: indexable iterable
+        color is a iterable corrosponding 
+        to (r ,g ,b)
+       
+        if 1 iterable of numbers, eg: (56, 78, 90)
+             numbers corrospond to foreground color
+        
+        if 1 iterable of 2 colors, eg: [(45, 56, 89),
+                                       (77, 8, 56)]
+        numbers corrospond to foreground and
+        background color
 
-    :Example:
-        red = (255, 0, 0)
-        blue = (50, 50, 255)
-        printn('this word is in *red*, and this is in *blue*', (red, blue))
-        printn('9&*9 is 81')
+    Example
+    ---
+    a simple example
+    I can't show the outputs as
+    colors cannot be shown (obvio)
+
+    >>> red = (255, 0, 0)
+    >>> blue = (50, 50, 255)
+    >>> printn('this word is in *red*, and this is in *blue*', (red, blue))
+    >>> printn('9&*9 is 81')
+    >>>
     '''
     curr_color_index = -1
     sen_colors = OrderedDict()
@@ -248,8 +277,15 @@ def color_escape(text):
     that is, color escaped text will be rendered normally
     when print c is used
 
-    :param text: text to escape
-    :type text: str
+    Parameters
+    ---
+    text : string
+        text to escape
+
+    Returns
+    ---
+    string
+        color escaped text
     '''
     escaped = text.replace("&", "&&")
     escaped = escaped.replace("*", "&*")
