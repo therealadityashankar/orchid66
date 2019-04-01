@@ -262,11 +262,12 @@ def printn(text, colors):
                 curr_color = None
         else:
             curr_sen += char
+    sen_colors[curr_sen] = curr_color
 
     for sen in sen_colors:
         color = sen_colors[sen]
         fgcolor, bgcolor = getcolor(color)
-        printc(sen, fgcolor, bgcolor)
+        printc(sen, (fgcolor, bgcolor))
     
     printc("\n")
 
