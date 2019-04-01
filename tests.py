@@ -26,3 +26,4 @@ escaped = color_escape(string)
 blue_in_white = ("blue", "white")
 printn(f"escaped printn: *{escaped}*", blue_in_white)
 
+printn("*this is coloured* and this is not", (blue_in_white,))
