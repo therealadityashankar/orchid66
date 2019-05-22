@@ -4,17 +4,25 @@ represents text if it were curr_color
 """
 from collections import OrderedDict
 
+import os
+
+dirpath = os.path.dirname(os.path.abspath(__file__))
+
+COLORS = {}
+
+with open(f"{dirpath}/x11_colors.txt") as clrsf:
+    lines = clrsf.readlines()
+    for line in lines:
+        if line[0] == '#': continue
+        else:
+            vals, name = line.split("\t\t")
+            r, g, b = vals[0:3], vals[4:7], vals[8:11]
+            r, g, b = int(r), int(g), int(b)
+            name = name[:-1]
+            COLORS[name] = (r, g, b)
+
 # base error class
 class Error(Exception): pass
-
-class COLORS:
-    red = (255, 50, 50)
-    blue = (50, 50, 255)
-    green = (50, 255, 50)
-    pink = (255, 192, 203)
-    black = (0, 0, 0)
-    white = (255, 255, 255)
-    # add colors here
 
 
 def colored_bash(text, color=None):
@@ -100,9 +108,9 @@ def getcolorstr(colorstr):
         tuple indicating appropriate
         color in RGB
     '''
-    color = getattr(COLORS, colorstr, None)
+    color = COLORS.get(colorstr)
     if color is None:
-        raise Error(f'unknown color {color}')
+        raise Error(f'unknown color {repr(colorstr)}')
 
     return color
     
