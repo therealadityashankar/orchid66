@@ -8,7 +8,8 @@
 *Note: currently only supports linux*
 
 ## example:
-```
+
+```python
 from orchid66 import printn
 
 printn("this is in *red*, and this is in *blue*", ('red', 'blue'))
