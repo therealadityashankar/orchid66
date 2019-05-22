@@ -1,4 +1,4 @@
-from orchid66 import printc, printn, color_escape
+from orchid66 import printc, printn, color_escape, COLORS
 
 for i in range(0, 256, 20):
     # printc uses colored soooooo
@@ -27,3 +27,9 @@ blue_in_white = ("blue", "white")
 printn(f"escaped printn: *{escaped}*", blue_in_white)
 
 printn("*this is coloured* and this is not", (blue_in_white,))
+
+print()
+print('X11 colors')
+for color in COLORS.keys():
+    printc(' ', ('white', color), end=False)
+print()
