@@ -36,6 +36,9 @@ printn("I like *green in blue*", (green_in_blue,))
 2. change the current directory into this repository
 3. execute `pip install .`
 
+### supported colors
+all X11 colors in https://web.archive.org/web/20080502201401/http://cvsweb.xfree86.org/cvsweb/*checkout*/xc/programs/rgb/rgb.txt?rev=1.1
+
 ## orchid66s' mini language
 text between `*` is rendered as colored, except when preceded by a `&`
 
