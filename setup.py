@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 setuptools.setup(
     name="orchid66",
-    version="1.1.1",
+    version="1.1.2",
     description="print in color easily!",
     long_description=README,
     long_description_content_type="text/markdown",
