@@ -19,6 +19,13 @@ green_in_blue = ('green', 'blue')
 
 # notice tuple in tuple in second parameter
 printn("I like *green in blue*", (green_in_blue,))
+
+# with tuples
+red =  (255, 0, 0)
+blue = (50, 50, 255)
+green = (50, 255, 50)
+printn('this word is in *red*, and this is in *blue*', (red, blue))
+
 ```
 ![example output](exampleoutput.png)
 
