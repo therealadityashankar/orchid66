@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 setuptools.setup(
     name="orchid66",
-    version="1.1.5",
+    version="1.1.6",
     description="print in color easily!",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -18,5 +18,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    py_modules=["orchid66"]
+    py_modules=["orchid66", "x11_colors"]
 )

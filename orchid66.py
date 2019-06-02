@@ -5,21 +5,11 @@ represents text if it were curr_color
 from collections import OrderedDict
 
 import os
+from x11_colors import colors
 
 dirpath = os.path.dirname(os.path.abspath(__file__))
 
-COLORS = {}
-
-with open(f"{dirpath}/x11_colors.txt") as clrsf:
-    lines = clrsf.readlines()
-    for line in lines:
-        if line[0] == '#': continue
-        else:
-            vals, name = line.split("\t\t")
-            r, g, b = vals[0:3], vals[4:7], vals[8:11]
-            r, g, b = int(r), int(g), int(b)
-            name = name[:-1]
-            COLORS[name] = (r, g, b)
+COLORS = colors
 
 # base error class
 class Error(Exception): pass
